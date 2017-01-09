@@ -2,3 +2,5 @@ ST-DBSCAN is a density-based clustering algorithm that takes into account both s
 
 Different from DBSCAN, wich requires only two parameters, ST-DBSCAN requires four parameters: Eps1, Eps2, MinPts, and Delta-Epson.  Eps1 is the spatial distance, the maximum distance for a point be assign to a cluster. Eps2 is the maximum difference between non-spatial attributes. MinPts is the minimum number of neighbors for a point be a core point. The last one, Delta-Epson is the maximum difference between the attributes value average of a cluster and the attribute value for a new point wich will be inserted in that cluster. The parameter Delta-Epson has the function of split clusters that are near each other considering spatial aspects and are much different considering the non-spatial attribute. Delta-Epson was not implemented on this version.
 
+
+
