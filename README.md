@@ -1,4 +1,4 @@
-Documentation ST-DBSCAN
+#Documentation ST-DBSCAN
 
 ST-DBSCAN is a density-based clustering algorithm that takes into account both spatial and non-spatial attributes of the points. Like DBSCAN, this algorithm has the ability to identify clusters with arbitrary shape and it does not necessarily predetermine the number of clusters. The non-spatial attribute could be anyone that is not related to coordinates in a space (e.g., color, time, temperature).  Thus, ST-DBSCAN can create groups with points that are spatially near each other and that has similar non-spatial attributes. 
 
