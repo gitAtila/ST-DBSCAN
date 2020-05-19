@@ -25,14 +25,14 @@ def ST_DBSCAN(df, spatial_threshold, temporal_threshold, min_neighbors):
             neighborhood = retrieve_neighbors(index, df, spatial_threshold, temporal_threshold)
             
             if len(neighborhood) < min_neighbors:
-                df.set_value(index, 'cluster', NOISE)
+                df.at[index, 'cluster'] = NOISE
 
             else: # found a core point
                 cluster_label = cluster_label + 1
-                df.set_value(index, 'cluster', cluster_label)# assign a label to core point
+                df.at[index, 'cluster'] = cluster_label# assign a label to core point
 
                 for neig_index in neighborhood: # assign core's label to its neighborhood
-                    df.set_value(neig_index, 'cluster', cluster_label)
+                    df.at[neig_index, 'cluster'] = cluster_label
                     stack.append(neig_index) # append neighborhood to stack
                 
                 while len(stack) > 0: # find new neighbors from core point neighborhood
@@ -44,7 +44,7 @@ def ST_DBSCAN(df, spatial_threshold, temporal_threshold, min_neighbors):
                             neig_cluster = df.loc[neig_index]['cluster']
                             if (neig_cluster != NOISE) & (neig_cluster == UNMARKED): 
                                 # TODO: verify cluster average before add new point
-                                df.set_value(neig_index, 'cluster', cluster_label)
+                                df.at[neig_index, 'cluster'] = cluster_label
                                 stack.append(neig_index)
     return df
 
